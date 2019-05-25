@@ -70,7 +70,7 @@ function confirm_reset()
 }
 function confirm_reboot()
 {
-	return window.confirm("Você tem certeza que quer reiniciar o servidor?");
+	return window.confirm("Are you sure you want to reboot the server?");
 }
 </script>
 <table cellSpacing="0" cellPadding="0" width="100%" border="0">
