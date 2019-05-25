@@ -32,27 +32,27 @@ if ( isset($_GET['numero']) && isset($_GET['texto']) && isset($_GET['user']) && 
         $isViaGet = true;
     }
     else
-        exit('Usuario ou senha invalido');
+        exit('Invalid user or password');
 
 }
 
 if (isset($_POST['telnum'])) {
 
     if (strlen($_POST['telnum']) < 8) {
-       $error = "Numero menor que 8";
+       $error = "Number less than 8";
     }elseif (strlen($_POST['telnum']) < 1) {        
-       $error = "Numero esta vazio";
+       $error = "Number is empty";
     }elseif (strlen($_POST['smscontent']) < 1) {        
-       $error = "Texto esta vazio";
+       $error = "Text is empty";
     }elseif (strlen($_POST['smscontent']) > 120) {        
-       $error = "Texto maior que 120";
+       $error = "Text more than 120";
     }else{
         $asmanager = new AGI_AsteriskManager;
         $asmanager->connect('localhost', 'magnus', 'magnussolution');
 
         $command = "dongle sms ".$_POST['line']. " ".$_POST['telnum']. " \"".$_POST['smscontent']."\" 0 ".time();
         $asmanager->Command($command); 
-        $sucess = 'SMS enviado!';
+        $sucess = 'SMS sent!';
     }
 
     if (isset($isViaGet)) {
@@ -432,16 +432,16 @@ function myescape(sStr){
 
 </br>
 
-Envio por URL:
+URL Submission :
 <?php
 echo '<pre>';
-echo 'http://'.$_SERVER['HTTP_HOST'] . $_SERVER ['REQUEST_URI'].'&numero=NUMERO&texto=TEXTO&user=USER&senha=SENHA&canal=CANAL';?>
+echo 'http://'.$_SERVER['HTTP_HOST'] . $_SERVER ['REQUEST_URI'].'&numero=Number&texto=Text&user=USER&senha=Password&canal=Channel';?>
 
-<br>NUMERO = O numero que deseja enviar o SMS.
-<br>TEXTO = O conteudo do SMS. Maximo 120 caracteres.
-<br>USER = O mesmo usado para acessar o painel.
-<br>SENHA = A mesma usada para acessar o painel.
-<br>CANAL = Canal que quer usar para enviar o SMS.
+<br>Number = The number you want to send SMS.
+<br>Text = The SMS content. Maximum 120 characters.
+<br>USER = The same one used to access the panel.
+<br>Password = The same one used to access the panel.
+<br>Channel = Channel you want to use to send SMS.
 
 <script lang="javascript">
 var line_obj = document.getElementsByName("line"); 
