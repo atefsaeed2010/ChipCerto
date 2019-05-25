@@ -254,7 +254,7 @@ $sipConfig = parse_ini_file($configFile,true);
                   </tr>
                <?php endif; ?>
                   <tr>
-                     <td colspan="2" class="title1" height="25" align="right" ><a href="config.php?type=calling&add"><img src="images/add.png">&nbsp; ADICIONAR CONTA</a></td>
+                     <td colspan="2" class="title1" height="25" align="right" ><a href="config.php?type=calling&add"><img src="images/add.png">&nbsp; ADD ACCOUNT</a></td>
                   </tr>
                   <tr>
                      <td colspan="2" class="title2" height="25" >SIP ACCOUNTS</td>
