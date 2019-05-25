@@ -30,7 +30,7 @@ if (isset($_POST['login']) || isset($_POST['password'])) {
 		$_SESSION['logged'] = true;
 		header('Location: status.php');
 	}else{
-		echo "<center><font color=red>USUARIO OU SENHA INVALIDOS</font></center>";
+		echo "<center><font color=red>USERNAME OR PASSWORD IS INVALID</font></center>";
 	}
 }
 if (!isset($_SESSION['logged'])):
@@ -56,18 +56,16 @@ if (!isset($_SESSION['logged'])):
       <h1>ChipCerto</h1>
       <form method="post" action="access.php">
         <p><input type="text" name="login" value="" placeholder="Username"></p>
-        <p><input type="password" name="password" value="" placeholder="Senha"></p>
+        <p><input type="password" name="password" value="" placeholder="Password"></p>
         
-        <p class="submit"><input type="submit" name="commit" value="Entrar"></p>
+        <p class="submit"><input type="submit" name="commit" value="Log in"></p>
       </form>
     </div>
   </section>
   <center>
   <section class="about">
-    <p class="login-help">
-      &copy; 2005&ndash;2016 <a href="https://portabilidadecelular.com" target="_blank">Portabilidade</a> -
-      <a href="https://www.portabilidadecelular.com" target="_blank">ChipCerto License</a><br>
-      Original PSD by <a href="https://www.portabilidadecelular.com" target="_blank">Portabilidade</a>
+ 
+      
   </section>
 </center>
 </body>
