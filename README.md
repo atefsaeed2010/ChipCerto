@@ -1,18 +1,18 @@
 # ChipCerto
 
-Painel desenvolvido para administrar CHAN_DONGLE com portabilidade do site www.portabilidadecelular.com
+Panel developed for CHAN_DONGLE Adminstaration
 
-### INSTALAÇÃO:
+### INSTALLATION :
 
-Dependencias:
-Asterisk 1.8 ou superior
-Chan_dongle
+Dependencies:
+        Asterisk 1.8 or higher
+        Chan_dongle
 
 
-### PASSO A PASSO
+### STEP BY STEP
 
-### Deixar seu /etc/asterisk/dongle.conf assim: 
-(Você pode editar as propriedes conforme sua necessidade.)
+### edit  /etc/asterisk/dongle.conf like following: 
+(You can edit configs as required.)
 ```sh
 [general]
 interval=5
@@ -20,12 +20,12 @@ interval=5
 [defaults]
 rxgain=0
 txgain=0
-autodeletesms=yes
+autodeletesms=no
 resetdongle=yes
 u2diag=0
 usecallingpres=yes
 callingpres=allowed_passed_screen
-disablesms=yes
+disablesms=no
 language=en
 smsaspdu=yes
 mindtmfgap=0
@@ -39,7 +39,7 @@ allow=alaw,ulaw,gsm
 context=chipcerto_in
 disable=no
 ```
-### Adicionar Permissão para o /etc/asterisk/manager.conf
+### Add permision to /etc/asterisk/manager.conf
 ```sh
 [magnus]
 secret = magnussolution
@@ -49,7 +49,7 @@ read = system,call,log,verbose,agent,user,config,dtmf,reporting,cdr,dialplan
 write = system,call,agent,user,config,command,reporting,originate
 ```
 
-### Criar arquivos de configuração. (So executar os comandos abaixo)
+###Create configuration files. (Just execute the commands below)
 
 ```sh
 echo '' > /etc/asterisk/chipcerto_dongle.conf
@@ -103,7 +103,7 @@ echo '
 ' > /etc/asterisk/chipcerto.conf
 ```
 
-### INCLUIR OS ARQUIVOS NO ASTERISK
+### INCLUDE FILES IN ASTERISK
 
 ```sh
 echo '#include chipcerto_sip.conf' >> /etc/asterisk/sip.conf
@@ -112,28 +112,28 @@ echo '#include chipcerto_extensions_in.conf ' >> /etc/asterisk/extensions.conf
 echo '#include chipcerto_dongle.conf ' >> /etc/asterisk/dongle.conf
  ``` 
 
-### BAIXAR O PAINEL. dentro do diretorio web. 
-CentosOS /var/www/html
-Debian /var/www
- ``` sh
-git clone https://github.com/magnusbilling/ChipCerto.git
- ``` 
-6 - Dar permissao de escrita e leitura no diretorio /etc/asterisk para o usuario do apache.
-Se vc crirou o usuario asterisk na instalacao, voce pode mudar o user e group do apache.
-Use estes comandos:
+### DOWNLOAD THE PANEL. within the web directory. 
+ /var/www/html
 
-Em Centos:
+ ``` sh
+git clone https://github.com/atefsaeed2010/ChipCerto.git
+ ``` 
+6 - Give read/write permision on directory /etc/asterisk to user apache.
+if you created asterisk user during installation, vyou can change user and group of apache.
+Use these commands:
+
+on Centos:
  ``` sh
 sed -i "s/User apache/User asterisk/" /etc/httpd/conf/httpd.conf
 sed -i "s/Group apache/Group asterisk/" /etc/httpd/conf/httpd.conf
 ``` 
 
-Em Debian:
+on Debian:
  ``` sh
 sed -i 's/User User ${APACHE_RUN_USER}/User asterisk/' /etc/apache2/apache2.conf
 sed -i 's/Group User ${APACHE_RUN_GROUP}/Group asterisk/' /etc/apache2/apache2.conf 
 ```
-### REINCIAR O APACHE
+### restart APACHE
 Centos
 ```sh
 service httpd restart
@@ -143,7 +143,7 @@ Debian
 service apache2 restart
 ```
 
-### Copiar o AGI para a pasta do asterisk
+### Copy the AGI to the asterisk folder
 Centos
 ```sh
 cp -rf /var/www/html/ChipCerto/phpagi/* /var/lib/asterisk/agi-bin
@@ -156,21 +156,21 @@ cp -rf /var/www/ChipCerto/phpagi/* /var/lib/asterisk/agi-bin
 cp -rf /var/www/ChipCerto/phpagi/ChipCertoCredito.gsm /var/lib/asterisk/sounds
 ```
 
-### Permissão do AGI
+### PERMISSION OF AGI
 ```sh
 chmod +x /var/lib/asterisk/agi-bin/portabilidadecelular.php
 ```
 
-### Permissão para criar as sessions do PHP
+### Permission to create PHP sessions
 ```sh
 chown -R asterisk:asterisk /var/lib/php/session/
 chown -R asterisk:asterisk /etc/asterisk
 ```
 
->Acesso seu painel em http://seu_ip/ChipCerto
+>Access your dashboard at http://your_ip/ChipCerto
 
->Usuário: admin | Senha: magnus
+>USERNAME: admin | PASSWORD: magnus
 
-Use o https://github.com/magnusbilling/ChipCerto/issues para informar erros.
+Use https://github.com/atefsaeed2010/ChipCerto/issues to report errors.
 
-Suporte comercial: info@portabilidadecelular.com
+support: atefsaeed2010@gmail.com
