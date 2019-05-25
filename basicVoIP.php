@@ -108,7 +108,7 @@ $sipConfig = parse_ini_file($configFile,true);
 
    if (isset($_GET['add'])){
       $name = 'save';
-      $title = 'ADICIONAR NOVA CONTA SIP';
+      $title = 'ADD NEW SIP ACCOUNT';
       $sipConfig[$name]['type'] = 'friend';
       $sipConfig[$name]['context'] = 'chipcerto';
       $sipConfig[$name]['nat'] = 'force_rport,comedia';
@@ -257,7 +257,7 @@ $sipConfig = parse_ini_file($configFile,true);
                      <td colspan="2" class="title1" height="25" align="right" ><a href="config.php?type=calling&add"><img src="images/add.png">&nbsp; ADICIONAR CONTA</a></td>
                   </tr>
                   <tr>
-                     <td colspan="2" class="title2" height="25" >CONTAS SIP</td>
+                     <td colspan="2" class="title2" height="25" >SIP ACCOUNTS</td>
                   </tr>
                   <tr>
                      <td colspan="2">
@@ -273,7 +273,7 @@ $sipConfig = parse_ini_file($configFile,true);
                                  <td height="25" class="title1" align="center" >Context</td>
                                  <td height="25" class="title1" align="center" >Nat</td>
                                  <td height="25" class="title1" align="center" >Codec</td>
-                                 <td height="25" class="title1" align="center" >Açōes</td>
+                                 <td height="25" class="title1" align="center" >Actions</td>
                                  
                               </tr>
 
