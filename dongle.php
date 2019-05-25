@@ -29,7 +29,7 @@ if (isset($_GET['reload']) && $_GET['reload'] == 1) {
   $asmanager = new AGI_AsteriskManager;
   $asmanager->connect('localhost', 'magnus', 'magnussolution');
   $server = $asmanager->Command("dongle reload now");
-  echo '<script lang="javascript">alert(\'Dongle Reload sucesso!\')</script>';
+  echo '<script lang="javascript">alert(\'Dongle Reload success!\')</script>';
 }
 
 $configFile = '/etc/asterisk/chipcerto_dongle.conf';
@@ -137,12 +137,12 @@ $dongleConfig = parse_ini_file($configFile,true);
 
 if (isset($_GET['add'])){
       $name = 'save';
-      $title = 'ADICIONAR NOVO DONGLE';
+      $title = 'ADD NEW DONGLE';
       $dongleConfig[$name]['imei'] = $_POST['imei'];
    }      
    else{
       $name = $_GET['name'];
-      $title = 'EDITAR DONGLE '. $_GET['name'];
+      $title = 'EDIT DONGLE '. $_GET['name'];
    }
 
  ?>
@@ -173,7 +173,7 @@ if (isset($_GET['add'])){
                                                                   <div id="endpoint_type_SIP_div" class="visable">
                                                                      <div id="sip_config_mode_SINGLE_MODE_div" class="visable">
                                                                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                                            <td width="120" height="25" class="title1">Desativar</td>
+                                                                            <td width="120" height="25" class="title1">Disable</td>
                                                                              <td width="160" class="text">
                                                                                 <select name="disable" id="endpoint_type_select" class="select" >
                                                                                    <option value="no" <?php if($dongleConfig[$name]['disable'] == 'no') echo 'selected' ?> >No</option>
@@ -184,7 +184,7 @@ if (isset($_GET['add'])){
 
                                                                             <?php  if (isset($_GET['add'])): ?>
                                                                             <tr>
-                                                                              <td width="120" height="25" class="title1">NOME CANAL</td>
+                                                                              <td width="120" height="25" class="title1">CHANNEL NAME</td>
                                                                               <td width="160" class="text">
                                                                                  <input type="text" name="canal" id="sip_display_name" value="<?php echo $_POST['canal']?>" class="edit">
                                                                               </td>
@@ -203,7 +203,7 @@ if (isset($_GET['add'])){
                                                                               </td>
                                                                            </tr>
                                                                            <tr>
-                                                                              <td width="120" height="25" class="title1">NUMERO</td>
+                                                                              <td width="120" height="25" class="title1">Number</td>
                                                                               <td width="160" class="text">
                                                                                  <input type="text" name="exten" id="sip_registrar" value="<?php echo $dongleConfig[$name]['exten']?>" class="edit">
                                                                               </td>
@@ -273,7 +273,7 @@ if (isset($_GET['add'])){
                   </tr>
                <?php endif; ?>
                <tr>
-                     <td colspan="2" class="title1" height="25" align="right" ><a href="config.php?type=dongle&add"><img src="images/add.png">&nbsp; ADICIONAR NOVO DONGLE</a></td>
+                     <td colspan="2" class="title1" height="25" align="right" ><a href="config.php?type=dongle&add"><img src="images/add.png">&nbsp; ADD NEW DONGLE</a></td>
                   </tr>
                   <tr>
                      <td colspan="2" class="title2" height="25" >DONGLES SETTING</td>
@@ -287,7 +287,7 @@ if (isset($_GET['add'])){
                                  <td height="25" class="title1" align="center" >DISABLE</td>
                                  <td height="25" class="title1" align="center" >GROUP</td>
                                  <td height="25" class="title1" align="center" >IMEI</td> 
-                                 <td height="25" class="title1" align="center" >EDITAR</td>                                 
+                                 <td height="25" class="title1" align="center" >EDIT</td>                                 
                               </tr>
 
                               <?php 
